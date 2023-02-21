@@ -1,0 +1,55 @@
+#include <iostream>
+#include <winsock2.h>
+#include <WS2tcpip.h>
+
+#pragma comment(lib, "ws2_32.lib") // Link with ws2_32.lib library
+
+int main() {
+    // Initialize Winsock
+    WSADATA wsaData;
+    int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
+    if (result != 0) {
+        std::cerr << "WSAStartup failed with error: " << result << std::endl;
+        return 1;
+    }
+
+    // Create a socket for connecting to the server
+    SOCKET clientSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    if (clientSocket == INVALID_SOCKET) {
+        std::cerr << "socket failed with error: " << WSAGetLastError() << std::endl;
+        WSACleanup();
+        return 1;
+    }
+
+    // Connect to the server
+    sockaddr_in serverAddress;
+    serverAddress.sin_family = AF_INET;
+    inet_pton(AF_INET, "127.0.0.1", &serverAddress.sin_addr);
+    // Replace with the actual IP address of the server
+    serverAddress.sin_port = htons(8888); // Replace with the actual port number of the server
+    result = connect(clientSocket, (SOCKADDR*)&serverAddress, sizeof(serverAddress));
+    if (result == SOCKET_ERROR) {
+        std::cerr << "connect failed with error: " << WSAGetLastError() << std::endl;
+        closesocket(clientSocket);
+        WSACleanup();
+        return 1;
+    }
+
+    // Receive data from the server
+    char buffer[1024];
+    result = recv(clientSocket, buffer, sizeof(buffer), 0);
+    if (result > 0) {
+        std::cout << "Received data: " << buffer << std::endl;
+    }
+    else if (result == 0) {
+        std::cout << "Connection closed" << std::endl;
+    }
+    else {
+        std::cerr << "recv failed with error: " << WSAGetLastError() << std::endl;
+    }
+
+    // Close the socket and clean up Winsock
+    closesocket(clientSocket);
+    WSACleanup();
+    return 0;
+}

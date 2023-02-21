@@ -1,0 +1,57 @@
+protoc --plugin=protoc-gen-cpp_csharp=path/to/plugin/protoc-gen-cpp_csharp.exe --cpp_out=path/to/output/directory --csharp_out=path/to/output/directory path/to/person.proto
+
+
+C:\Users\ameya\Desktop\DemoDelsys\protoc-3.12.4-win64\bin
+
+
+
+protoc --plugin=protoc-gen-cpp_csharp= C:\Users\ameya\Desktop\DemoDelsys\protoc-3.12.4-win64\bin\protoc.exe --cpp_out=C:\Users\ameya\source\repos\ConsoleApplication1 --csharp_out=C:\Users\ameya\source\repos\ConsoleApp1\ConsoleApp1\person.proto
+
+
+
+
+protoc --plugin=protoc-gen-cpp_csharp= C:\Users\ameya\source\repos\ConsoleApplication1\packages\Google.Protobuf.Tools.3.22.0-rc3\tools\windows_x64\protoc.exe --cpp_out=C:\Users\ameya\source\repos\ConsoleApplication1 --csharp_out=C:\Users\ameya\source\repos\ConsoleApp1\ConsoleApp1\person.proto
+
+
+protoc --cpp_out=C:\Users\ameya\Desktop\DemoDelsys\Maker\CPlus1\CPlus1 message.proto
+
+# C#
+protoc --csharp_out=path/to/output/directory path/to/person.proto
+protoc --csharp_out=. person.proto
+
+# C++
+protoc --cpp_out=. person.proto
+
+# Main
+protoc --csharp_out=. mydata.proto
+protoc --csharp_out=. person.proto
+protoc --cpp_out=. person.proto
+
+
+# Protobuff
+C:\Users\ameya\Desktop\DemoDelsys\protoc-3.12.4-win64
+C:\Users\ameya\Downloads\protoc-21.12-win64\bin
+
+protoc --cpp_out=C:\Users\ameya\Desktop\DemoDelsys\Maker\CPlus1\CPlus1 message.proto
+
+git clone -b 3.12.4 https://github.com/protocolbuffers/protobuf.git
+
+
+cmake -G "NMake Makefiles" ^
+     -DCMAKE_BUILD_TYPE=Release ^
+     -DCMAKE_INSTALL_PREFIX=C:\Path\to\install ^
+
+
+C:\Users\ameya\source\repos\ConsoleApplication1\ConsoleApplication1 => Path\to
+C:\Users\ameya\source\repos\ConsoleApplication1\ConsoleApplication1
+
+C:\Users\ameya\Desktop\DemoDelsys\protobuf-all-21.12\protobuf-21.12\cmake
+
+cmake -G "Visual Studio 16 2019" ^
+     -DCMAKE_INSTALL_PREFIX=C:\Path\to\install ^
+     C:\Users\ameya\source\repos\ConsoleApplication1\ConsoleApplication1\src\protobuf
+
+cmake -G "NMake Makefiles" ^
+     -DCMAKE_BUILD_TYPE=Release ^
+     -DCMAKE_INSTALL_PREFIX=C:\Users\ameya\source\repos\ConsoleApplication1\ConsoleApplication1\install ^
+     C:\Users\ameya\source\repos\ConsoleApplication1\ConsoleApplication1\src\protobuf
